@@ -4,8 +4,11 @@ interface LoadingPostProps {
 
 const LoadingPost: React.FC<LoadingPostProps> = ({ onPostClosed }) => {
   return (
-    <div className="relative top-20 mx-auto p-5 border w-4/6 shadow-lg rounded-md bg-white">
-      <div className="relative float-right h-10 w-10">
+    <div className="relative sm:top-20 mx-auto sm:p-5 sm:border sm:w-4/6 sm:shadow-lg rounded-md bg-white ">
+      <div
+        className="relative float-right h-10 w-10 mt-5 sm:mt-0"
+        onClick={onPostClosed}
+      >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
           <path
             fillRule="evenodd"
@@ -15,8 +18,8 @@ const LoadingPost: React.FC<LoadingPostProps> = ({ onPostClosed }) => {
           />
         </svg>
       </div>
-      <div className="flex flex-row justify-center mt-20">
-        <div className="w-4/6 h-full rounded">
+      <div className="flex flex-col sm:flex-row justify-center mt-20">
+        <div className="w-full h-full rounded">
           <div
             role="status"
             className="space-y-8 animate-pulse md:space-y-0 md:space-x-8 rtl:space-x-reverse md:flex md:items-center"
@@ -34,7 +37,7 @@ const LoadingPost: React.FC<LoadingPostProps> = ({ onPostClosed }) => {
             </div>
           </div>
         </div>
-        <div className="w-96 px-10 text-md leading-6 font-medium text-gray-900 max-h-screen overflow-y-auto">
+        <div className="mt-10 sm:mt-0 w-96 sm:px-10 text-md leading-6 font-medium text-gray-900 max-h-screen overflow-y-auto">
           <div className="w-full">
             <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
             <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[480px] mb-2.5"></div>

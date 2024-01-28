@@ -4,9 +4,9 @@ function LoadingPosts() {
       <div
         role="status"
         key={`post_${key}`}
-        className="space-y-8 animate-pulse md:space-y-0 md:space-x-8 rtl:space-x-reverse md:flex md:items-center"
+        className="space-y-8 animate-pulse mb-10 sm:mb-0 md:space-y-0 md:space-x-8 rtl:space-x-reverse md:flex md:items-center"
       >
-        <div className="flex items-center justify-center w-56 h-56 bg-gray-300 rounded dark:bg-gray-700">
+        <div className="flex items-center justify-center w-96 h-96 sm:w-56 sm:h-56 bg-gray-300 rounded dark:bg-gray-700">
           <svg
             className="w-10 h-10 text-gray-200 dark:text-gray-600"
             aria-hidden="true"
@@ -25,7 +25,7 @@ function LoadingPosts() {
     return loadingPost(idx);
   });
 
-  return <div className="grid grid-cols-3 gap-10">{loadingPosts}</div>;
+  return <div className="sm:grid sm:grid-cols-3 sm:gap-10">{loadingPosts}</div>;
 }
 
 export default LoadingPosts;

@@ -24,10 +24,10 @@ const Posts: React.FC<PostProps> = ({ hashtag, onPostSelected }) => {
   return (
     <>
       {posts ? (
-        <div className="grid grid-cols-3 gap-10">
+        <div className="sm:grid sm:grid-cols-3 sm:gap-10">
           {posts.map((post: any, idx: number) => (
-            <div key={`post_${idx}`} className="w-56 h-56 rounded" onClick={() => {onPostSelected(post)}} >
-              <img className="w-56 h-56" src={post.image} alt="Post" />
+            <div key={`post_${idx}`} className="mb-10 sm:mb-0 w-96 h-96 sm:w-56 sm:h-56 rounded mb-5" onClick={() => {onPostSelected(post)}} >
+              <img className="w-96 h-96 sm:w-56 sm:h-56" src={post.image} alt="Post" />
             </div>
           ))}
         </div>
