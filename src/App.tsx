@@ -32,11 +32,11 @@ function App() {
       ) : (
         <>
           <p className="mt-10 text-4xl font-bold">#{hashtag}</p>
-          <form onSubmit={(e) => onHashtagSearchClick(e)} className="py-10">
+          <form onSubmit={(e) => onHashtagSearchClick(e)} className="py-10 sm:w-auto w-full px-5 sm:px-0">
             <label className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">
               Search
             </label>
-            <div className="relative w-96">
+            <div className="relative sm:w-96">
               <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                 <svg
                   className="w-4 h-4 text-gray-500 dark:text-gray-400"
