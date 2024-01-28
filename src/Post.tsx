@@ -25,7 +25,7 @@ const Post: React.FC<PostProps> = ({ post, onPostClosed }) => {
       {postInfo ? (
         <div className="relative sm:top-20 mx-auto sm:p-5 border sm:w-4/6 sm:shadow-lg rounded-md bg-white">
           <div
-            className="relative float-right h-10 w-10 mt-5 sm:mt-0"
+            className="relative float-right h-10 w-10 mt-5 sm:mt-0 mr-2 sm:mr-0"
             onClick={onPostClosed}
           >
             <svg
@@ -43,7 +43,7 @@ const Post: React.FC<PostProps> = ({ post, onPostClosed }) => {
           </div>
           <div className="flex flex-col sm:flex-row justify-center mt-20">
             <div className="w-full h-full rounded">
-              <img className="w-auto h-full" src={post.image} alt="Post" />
+              <img className="w-96 sm:w-auto h-full" src={post.image} alt="Post" />
             </div>
             <div className="mt-10 sm:mt-0 w-96 sm:px-10 text-md leading-6 font-medium text-gray-900 max-h-screen overflow-y-auto">
               <div className="flex flex-row mb-5">
