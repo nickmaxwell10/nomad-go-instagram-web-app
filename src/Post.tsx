@@ -12,7 +12,7 @@ const Post: React.FC<PostProps> = ({ post, onPostClosed }) => {
   useEffect(() => {
     async function fetchPostInfo() {
       const response = await fetch(
-        `http://localhost:3000/instagram/post/${post.id}`
+        `${process.env.REACT_APP_API_URL}/instagram/post/${post.id}`
       );
       const postInfoJson = await response.json();
       setPostInfo(postInfoJson);

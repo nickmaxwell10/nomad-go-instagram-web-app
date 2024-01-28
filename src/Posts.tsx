@@ -13,7 +13,7 @@ const Posts: React.FC<PostProps> = ({ hashtag, onPostSelected }) => {
     setPosts(null)
     async function fetchPosts() {
       const response = await fetch(
-        `http://localhost:3000/instagram/posts/${hashtag}`
+        `${process.env.REACT_APP_API_URL}/instagram/posts/${hashtag}`
       );
       const postsJson = await response.json();
       setPosts(postsJson);
