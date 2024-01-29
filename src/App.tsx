@@ -21,7 +21,7 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center mb-20">
+    <div className="flex flex-col items-center justify-center mb-20 px-5 sm:px-0">
       {selectedPost ? (
         <Post
           post={selectedPost}

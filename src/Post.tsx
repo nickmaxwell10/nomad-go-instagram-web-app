@@ -23,7 +23,7 @@ const Post: React.FC<PostProps> = ({ post, onPostClosed }) => {
   return (
     <>
       {postInfo ? (
-        <div className="relative sm:top-20 mx-auto sm:p-5 border sm:w-4/6 sm:shadow-lg rounded-md bg-white">
+        <div className="relative sm:top-20 mx-auto sm:p-5 sm:border sm:w-4/6 sm:shadow-lg rounded-md bg-white">
           <div
             className="relative float-right h-10 w-10 mt-5 sm:mt-0 mr-2 sm:mr-0"
             onClick={onPostClosed}
