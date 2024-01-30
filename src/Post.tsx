@@ -25,7 +25,7 @@ const Post: React.FC<PostProps> = ({ post, onPostClosed }) => {
     const postTitle = postInfo.title.split(/(?=[^\w#_])|(?<= )/g);
     postTitleHtml = postTitle.map((str: any, idx: number) => {
       if (str.startsWith("#")) {
-        return <div className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" key={`hashtag_${idx}`} onClick={() => onPostClosed(str.replace('#',''))}>{str}</div>;
+        return <span className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" key={`hashtag_${idx}`} onClick={() => onPostClosed(str.replace('#',''))}>{str}</span>;
       }
       return str;
     });
@@ -60,7 +60,7 @@ const Post: React.FC<PostProps> = ({ post, onPostClosed }) => {
                 alt="Post"
               />
             </div>
-            <div className="mt-10 sm:mt-0 w-96 sm:px-10 text-md leading-6 font-medium text-gray-900 h-full overflow-y-auto">
+            <div className="mt-10 sm:mt-0 w-96 mx-5 sm:mx-0 sm:px-10 text-md leading-6 font-medium text-gray-900 h-full overflow-y-auto">
               <div className="flex flex-row mb-5">
                 <img
                   className="w-10 h-10 rounded-full"
