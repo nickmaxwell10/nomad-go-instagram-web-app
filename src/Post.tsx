@@ -20,6 +20,17 @@ const Post: React.FC<PostProps> = ({ post, onPostClosed }) => {
     fetchPostInfo();
   }, []);
 
+  let postTitleHtml: any[] = [];
+  if (postInfo && postInfo.title) {
+    const postTitle = postInfo.title.split(/(?=[^\w#_])|(?<= )/g);
+    postTitleHtml = postTitle.map((str: any, idx: number) => {
+      if (str.startsWith("#")) {
+        return <div className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" key={`hashtag_${idx}`} onClick={() => onPostClosed(str.replace('#',''))}>{str}</div>;
+      }
+      return str;
+    });
+  }
+
   return (
     <>
       {postInfo ? (
@@ -43,9 +54,13 @@ const Post: React.FC<PostProps> = ({ post, onPostClosed }) => {
           </div>
           <div className="flex flex-col sm:flex-row justify-center mt-20">
             <div className="w-full h-full rounded">
-              <img className="w-96 sm:w-auto h-full" src={post.image} alt="Post" />
+              <img
+                className="w-96 sm:w-auto h-full"
+                src={post.image}
+                alt="Post"
+              />
             </div>
-            <div className="mt-10 sm:mt-0 w-96 sm:px-10 text-md leading-6 font-medium text-gray-900 max-h-screen overflow-y-auto">
+            <div className="mt-10 sm:mt-0 w-96 sm:px-10 text-md leading-6 font-medium text-gray-900 h-full overflow-y-auto">
               <div className="flex flex-row mb-5">
                 <img
                   className="w-10 h-10 rounded-full"
@@ -54,7 +69,7 @@ const Post: React.FC<PostProps> = ({ post, onPostClosed }) => {
                 />
                 <div className="ml-5 mt-2 font-bold">{postInfo.author}</div>
               </div>
-              <div className="mb-8">{postInfo.title}</div>
+              <div className="mb-8">{postTitleHtml}</div>
               {postInfo.comments && postInfo.comments.length ? (
                 postInfo.comments.map((comment: any, idx: number) => (
                   <div key={`comment_${idx}`} className="mt-4">
@@ -63,15 +78,13 @@ const Post: React.FC<PostProps> = ({ post, onPostClosed }) => {
                   </div>
                 ))
               ) : (
-                <div className="mt-10 font-bold">
-                  No Comments
-                </div>
+                <div className="mt-10 font-bold">No Comments</div>
               )}
             </div>
           </div>
         </div>
       ) : (
-        <LoadingPost onPostClosed={onPostClosed}/>
+        <LoadingPost onPostClosed={onPostClosed} />
       )}
     </>
   );

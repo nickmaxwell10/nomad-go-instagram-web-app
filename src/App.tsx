@@ -21,18 +21,24 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center mb-20 px-5 sm:px-0">
+    <div className="flex flex-col items-center justify-center mb-20">
       {selectedPost ? (
         <Post
           post={selectedPost}
-          onPostClosed={() => {
+          onPostClosed={(hashtag: string) => {
             setSelectedPost(null);
+            if (hashtag) {
+              setHashtag(hashtag);
+            }
           }}
         />
       ) : (
         <>
           <p className="mt-10 text-4xl font-bold">#{hashtag}</p>
-          <form onSubmit={(e) => onHashtagSearchClick(e)} className="py-10 sm:w-auto w-full px-5 sm:px-0">
+          <form
+            onSubmit={(e) => onHashtagSearchClick(e)}
+            className="py-10 sm:w-auto w-full px-5 sm:px-0"
+          >
             <label className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">
               Search
             </label>
