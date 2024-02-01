@@ -25,10 +25,10 @@ function App() {
       {selectedPost ? (
         <Post
           post={selectedPost}
-          onPostClosed={(hashtag: string) => {
+          onPostClosed={(newHashtag?: string) => {
             setSelectedPost(null);
-            if (hashtag) {
-              setHashtag(hashtag);
+            if (newHashtag) {
+              setHashtag(newHashtag);
             }
           }}
         />
